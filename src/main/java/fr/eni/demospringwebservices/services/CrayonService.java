@@ -36,4 +36,8 @@ public class CrayonService {
     public Crayon findById(int id) {
         return this.crayonRepository.findById(id).orElse(null);
     }
+
+    public Crayon save(Crayon crayon) {
+        return this.crayonRepository.save(crayon);
+    }
 }
