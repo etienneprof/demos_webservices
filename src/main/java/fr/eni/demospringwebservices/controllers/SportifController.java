@@ -3,6 +3,7 @@ package fr.eni.demospringwebservices.controllers;
 import fr.eni.demospringwebservices.entities.Sportif;
 import fr.eni.demospringwebservices.services.SportifService;
 import fr.eni.demospringwebservices.services.exceptions.SportifException;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,7 @@ public class SportifController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Sportif sportif) {
+    public ResponseEntity<?> save(@Valid @RequestBody Sportif sportif) {
         if (sportif.getId() != null) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }

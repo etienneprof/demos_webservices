@@ -22,7 +22,7 @@ public class SportifService {
     }
 
     public Sportif save(Sportif sportif) throws SportifException {
-        checkSportif(sportif);
+        // checkSportif(sportif);
 
         return sportifRepository.save(sportif);
     }
