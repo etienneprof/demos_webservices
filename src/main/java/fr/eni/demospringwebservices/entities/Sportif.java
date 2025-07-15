@@ -2,7 +2,6 @@ package fr.eni.demospringwebservices.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -21,19 +20,19 @@ public class Sportif {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Size(min = 4, max = 80)
+    @Size(min = 4, max = 80, message = "{exception.sportif.nom}")
     @Column(length = 80)
     private String nom;
 
-    @Past
+    @Past(message = "{exception.sportif.date}")
     private LocalDate date;
 
-    @Past
+    @Past(message = "{exception.sportif.derniereLicence}")
     private LocalDate derniereLicence;
 
     private boolean actif;
 
-    @Email
+    @Email(message = "{exception.sportif.mail}")
     private String mail;
 
     private String telephone;
